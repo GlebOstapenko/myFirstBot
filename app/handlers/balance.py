@@ -8,6 +8,7 @@ from aiogram.dispatcher.filters.state import State, StatesGroup
 class Balance(StatesGroup):
     waiting_checkout_id = State()
 
+
 # Получаем ключ для запроса по API из БД
 def get_key(user_name="", user_id=""):
     with sql.connect("verified_users.sqlite3") as con:
@@ -19,6 +20,7 @@ def get_key(user_name="", user_id=""):
         return results[0][3]
     else:
         return "Error"
+
 
 # Возвращает список касс на подключённом аккаунте
 def get_checkouts(key):
